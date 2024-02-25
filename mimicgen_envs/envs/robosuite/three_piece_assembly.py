@@ -775,7 +775,8 @@ class ThreePieceAssembly(SingleArmEnv_MG):
         Check if task is complete.
         """
         metrics = self._get_partial_task_metrics()
-        return metrics["task"]
+        # TODO (WARNING): Three Piece Here is actually two piece, as we only care if the first piece was assembled!
+        return metrics["first_piece_assembled"]
 
     def _check_first_piece_is_assembled(self, xy_thresh=0.02):
         robot_and_piece_1_in_contact = self._check_grasp(
